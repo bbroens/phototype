@@ -11,11 +11,11 @@ import Home from "./pages/home/Home";
 import Header from "./components/header/Header";
 import Menu from "./components/menu/Menu";
 import Aside from "./components/aside/Aside";
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
+import { AuthContext } from "./context/authContext";
 
 const App = () => {
-  //TODO
-  const currentUser = true;
+  const { currentUser } = useContext(AuthContext);
 
   const AppLayout = () => {
     return (
