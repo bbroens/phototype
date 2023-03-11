@@ -1,4 +1,24 @@
 @import "../../globalstyle.scss";
 
 header {
+  @include themify($themes) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background-color: themed("bg");
+    color: themed("textColor");
+
+    a {
+      display: flex;
+      align-items: center;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+    }
+    .right {
+    }
+  }
 }

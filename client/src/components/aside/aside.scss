@@ -1,4 +1,36 @@
 @import "../../globalstyle.scss";
 
 aside {
+  @include themify($themes) {
+    flex: 2;
+    height: calc(100vh - 100px);
+    background-color: themed("bg");
+    color: themed("textColor");
+    padding-right: $padding-page-width;
+    padding-left: 20px;
+
+    .asidecontainer {
+      padding: 20px;
+
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 10px;
+      }
+
+      .profilestats {
+        padding-top: 50px;
+
+        .statsContainer {
+          display: flex;
+          flex-direction: column;
+
+          .stats {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
 }
