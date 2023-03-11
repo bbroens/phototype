@@ -1,3 +1,25 @@
+// Posts for the main social photo feed
+export const dummyPostFeed = [
+  {
+    post_id: 1,
+    name: "Emily Krusann",
+    datetime: "2023-03-09 21:17:42",
+    user_id: 2,
+    profile_pic: "i1.jpg",
+    text: "Powered through the summer heat to get these shots. Worth it. 👀",
+    img: ["i1.jpg", "i2.jpg", "i3.jpg"],
+  },
+  {
+    post_id: 2,
+    name: "Jasper Kaehler",
+    datetime: "2023-02-27 20:14:17",
+    user_id: 3,
+    profile_pic: "i3.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    img: ["i5.jpg"],
+  },
+];
+
 // Workshops for the left menu
 export const dummyWorkshops = [
   {
@@ -32,5 +54,36 @@ export const dummyComments = [
     name: "Jonas Bovink",
     user_id: 4,
     profile_pic: "i6.jpg",
+  },
+];
+
+export const dummyCommunityEvents = [
+  {
+    event_id: 1,
+    date: "2023-08-05",
+    name: "Photo Meetup",
+    location: "Zandvoort",
+  },
+  {
+    event_id: 2,
+    date: "2023-09-24",
+    name: "Dam Gallery",
+    location: "Amsterdam",
+  },
+];
+
+// Recent activity feed
+export const dummyRecentActivity = [
+  {
+    activity_id: 1,
+    profile_pic: "i2.jpg",
+    name: "Hanna",
+    event: "added a new shot",
+  },
+  {
+    activity_id: 1,
+    profile_pic: "i3.jpg",
+    name: "Lucas",
+    event: "added a new shot",
   },
 ];

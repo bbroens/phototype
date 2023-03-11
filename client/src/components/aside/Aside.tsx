@@ -1,36 +1,16 @@
 import "./aside.scss";
 import Event, { ICommunityEvent } from "../event/Event";
 import Activity, { IActivity } from "../activity/Activity";
+import { dummyCommunityEvents, dummyRecentActivity } from "../../dummydata";
 
-const communityEventArray: ICommunityEvent[] = [
-  {
-    event_id: 1,
-    date: "2023-08-05",
-    name: "Photo Meetup",
-    location: "Zandvoort",
-  },
-  {
-    event_id: 2,
-    date: "2023-09-24",
-    name: "Dam Gallery",
-    location: "Amsterdam",
-  },
-];
+//? DUMMY DATA
+let communityEventArray: ICommunityEvent[] = [];
+let activityArray: IActivity[] = [];
 
-const activityArray: IActivity[] = [
-  {
-    activity_id: 1,
-    profile_pic: "i2.jpg",
-    name: "Hanna",
-    event: "added a new shot",
-  },
-  {
-    activity_id: 2,
-    profile_pic: "i3.jpg",
-    name: "Lucas",
-    event: "added a new shot",
-  },
-];
+if (import.meta.env.VITE_USE_DUMMY_DATA === "true") {
+  communityEventArray = dummyCommunityEvents;
+  activityArray = dummyRecentActivity;
+}
 
 const Aside = () => {
   return (

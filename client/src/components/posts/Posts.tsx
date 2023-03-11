@@ -1,22 +1,16 @@
 import "./posts.scss";
 import { Post, IPost } from "../cards/post/Post";
+import { dummyPostFeed } from "../../dummydata";
 
 type Props = {
   filterUserId?: number;
 };
 
-// DUMMY DATA
-const postArray: IPost[] = [
-  {
-    post_id: 1,
-    name: "Jasper Kaehler",
-    datetime: "2023-02-27 20:14:17",
-    user_id: 3,
-    profile_pic: "i3.jpg",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    img: ["i5.jpg"],
-  },
-];
+//? DUMMY DATA
+let postArray: IPost[] = [];
+if (import.meta.env.VITE_USE_DUMMY_DATA === "true") {
+  postArray = dummyPostFeed;
+}
 
 export const Posts = ({ filterUserId }: Props) => {
   const filterPosts = (
