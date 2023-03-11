@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 import { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import "./login.scss";
 
@@ -36,23 +36,35 @@ const Login = () => {
   return (
     <main className="login">
       <div className="login-wrapper">
-        <h2>User login</h2>
-        <form>
-          <input
-            type="text"
-            onChange={handleChange}
-            name="username"
-            placeholder="Username"
-          />
-          <input
-            type="password"
-            onChange={handleChange}
-            name="password"
-            placeholder="Password"
-          />
-          {err && err}
-          <button onClick={handleLogin}>Login</button>
-        </form>
+        <section className="left">
+          <h1>Hello!</h1>
+          <p>
+            Share your best shots and boost friends by commenting on their work!
+          </p>
+          <span>Want to register an account?</span>
+          <Link to="/">
+            <button>Register</button>
+          </Link>
+        </section>
+        <section className="right">
+          <h2>User login</h2>
+          <form>
+            <input
+              type="text"
+              onChange={handleChange}
+              name="username"
+              placeholder="Username"
+            />
+            <input
+              type="password"
+              onChange={handleChange}
+              name="password"
+              placeholder="Password"
+            />
+            {err && err}
+            <button onClick={handleLogin}>Login</button>
+          </form>
+        </section>
       </div>
     </main>
   );

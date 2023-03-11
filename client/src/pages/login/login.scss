@@ -1,4 +1,39 @@
 @import "../../globalstyle.scss";
 
 .login {
+  height: 100vh;
+  background-color: $color-background-light;
+  display: flex;
+  justify-content: center;
+
+  .login-wrapper {
+    width: 50%;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 600px;
+    overflow: hidden;
+    box-shadow: 00px 0px 50px 0px rgba(131, 131, 131, 0.2);
+
+    .left {
+      flex: 1;
+      background: linear-gradient(rgba(36, 9, 110, 0.5), rgba(33, 8, 102, 0.5)),
+        url("../../../public/i4.jpg") center;
+      background-size: cover;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      color: white;
+    }
+
+    .right {
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      justify-content: center;
+    }
+  }
 }
