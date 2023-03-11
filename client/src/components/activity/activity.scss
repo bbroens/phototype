@@ -1,0 +1,22 @@
+@import "../../globalstyle.scss";
+
+.activityItem {
+  @include themify($themes) {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    img {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0px 0px 1px 0px themed("border");
+    }
+
+    span {
+      font-size: 0.8rem;
+      color: themed("textColor");
+    }
+  }
+}

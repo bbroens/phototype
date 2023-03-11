@@ -1,0 +1,6 @@
+@import "../../globalstyle.scss";
+
+.posts {
+  @include themify($themes) {
+  }
+}

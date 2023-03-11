@@ -1,0 +1,36 @@
+@import "../../../globalstyle.scss";
+
+.postCard {
+  @include themify($themes) {
+    background-color: themed("bgCard");
+    color: themed("textColor");
+
+    .postContainer {
+    
+      .postUser {
+
+        .timePosted {
+          color: themed("textColorSoft");
+          font-size: 0.8rem;
+          padding-top: 3px;
+        }
+      }
+      .postBody {
+       
+        .shots {
+        
+          .collage {
+            display: flex;      
+          }
+        }
+        .text {
+        }
+      }
+      .postActions {
+        display: flex;
+        
+        }
+      }
+    }
+  }
+}

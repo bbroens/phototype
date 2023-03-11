@@ -1,0 +1,42 @@
+@import "../../globalstyle.scss";
+
+.comments {
+  @include themify($themes) {
+    .write {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      input {
+        border: 1px solid themed("border");
+        background-color: transparent;
+        color: themed("textColor");
+      }
+
+      button {
+        border: none;
+        background-color: $color-icons-light;
+        color: $color-background-dark;
+      }
+    }
+
+    .comment {
+      margin: 30px 0px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .date {
+        flex: 1;
+        align-self: center;
+        color: gray;
+      }
+    }
+  }
+}

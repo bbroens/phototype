@@ -1,0 +1,39 @@
+@import "../../globalstyle.scss";
+
+.event {
+  @include themify($themes) {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .name {
+      color: themed("textColor");
+      font-weight: 600;
+    }
+    .location {
+      color: themed("textColorSemiSoft");
+      display: flex;
+      align-items: center;
+    }
+    time.icon {
+      font-size: 1rem;
+      display: block;
+      position: relative;
+      min-width: 80px;
+      min-height: 80px;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    time.icon div {
+      position: absolute;
+      top: 0;
+      color: #fff;
+      background-color: $color-primary;
+    }
+    time.icon span {
+      font-size: 2em;
+      color: #2f2f2f;
+    }
+  }
+}
