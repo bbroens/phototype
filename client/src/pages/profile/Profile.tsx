@@ -27,7 +27,7 @@ const Profile = () => {
             </a>
           </div>
           <div className="center">
-            <span>TODO</span>
+            <span>{currentUser.name}</span>
             <button>Follow</button>
           </div>
           <div className="right">
