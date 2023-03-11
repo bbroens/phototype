@@ -6,3 +6,23 @@
 ![CSS3](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white) ![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge) ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=whit)
 
 Phototype is an open source social media prototype aimed at the shareable nature of photography.
+
+- Responsive front-end built with React.js, Typescript, SASS and Vite.
+- Back-end API built with Node.js Express on a Docker MySQL database.
+- Includes linter, git hooks and unit testing with Jest.
+
+### Front-end
+
+- React TypeScript codebase (.tsx and .ts).
+- Re-usable components with type interfaces and SASS styling.
+- React-Router and React Query libraries.
+- Scripted linting, formatting, git hooks and unit testing
+
+### Back-end
+
+- Node.js Express API with bespoke endpoints.
+- MySQL database (Docker) with population and schema scripts.
+- Nodemon for realtime API building and debugging.
+- Dummy data for initial spin-up provided.
+
+## Installation
