@@ -5,20 +5,70 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 20px;
     height: 80px;
+    position: sticky;
+    top: 0;
     background-color: themed("bg");
     color: themed("textColor");
+    z-index: 999;
+
+    .headerIcon {
+      color: themed("navIcons");
+      cursor: pointer;
+    }
 
     a {
       display: flex;
       align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      padding-top: 1px;
+      text-decoration: none;
+      color: themed("textColor");
     }
 
     .left {
+      padding-left: $padding-page-width;
       display: flex;
       align-items: center;
+
+      .logo {
+        background: $color-primary;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+      }
+
+      img {
+        position: relative;
+        width: 60%;
+        top: 20%;
+        left: 11px;
+      }
     }
+
     .right {
+      padding-right: $padding-page-width;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: themed("navIcons");
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: themed("textColor");
+        padding-left: 40px;
+
+        img {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
     }
   }
 }

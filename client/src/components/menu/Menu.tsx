@@ -1,4 +1,3 @@
-import React from "react";
 import "./menu.scss";
 import NavItem from "../navitem/NavItem";
 import Workshop, { IWorkshop } from "../workshop/Workshop";
