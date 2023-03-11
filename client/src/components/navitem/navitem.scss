@@ -1,0 +1,15 @@
+@import "../../globalstyle.scss";
+
+.navItem {
+  font-size: 1rem;
+  font-weight: 400;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 20px;
+  }
+}

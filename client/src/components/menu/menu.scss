@@ -1,4 +1,20 @@
 @import "../../globalstyle.scss";
 
 nav {
+  flex: 2;
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 100px);
+  overflow: scroll;
+  background-color: themed("bg");
+  color: $color-primary;
+  padding-left: $padding-page-width;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navcontainer {
+    padding: 20px;
+  }
 }
