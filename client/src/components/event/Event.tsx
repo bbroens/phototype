@@ -1,5 +1,6 @@
 import "./event.scss";
 import { Link } from "react-router-dom";
+import NearMeIcon from "@mui/icons-material/NearMe";
 export interface ICommunityEvent {
   event_id: number;
   date: string;
@@ -13,7 +14,7 @@ type Props = {
   location: string;
 };
 
-const Event = ({ date, name }: Props) => {
+const Event = ({ date, name, location }: Props) => {
   const dateObj = new Date(date);
 
   return (
@@ -25,7 +26,9 @@ const Event = ({ date, name }: Props) => {
         </time>
         <div className="details">
           <div className="name">{name}</div>
-          <div className="location">location</div>
+          <div className="location">
+            <NearMeIcon /> {location}
+          </div>
         </div>
       </div>
     </Link>

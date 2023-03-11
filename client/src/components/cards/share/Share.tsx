@@ -1,22 +1,30 @@
 import "./share.scss";
-import { useContext } from "react";
 import AddShotIcon from "@mui/icons-material/AddPhotoAlternate";
 import AddLocationIcon from "@mui/icons-material/AddLocationAlt";
 import TagIcon from "@mui/icons-material/TagFaces";
+import { useState, useContext } from "react";
 import { AuthContext } from "../../../context/authContext";
 
 const Share = () => {
+  const [post, setPost] = useState("");
   const { currentUser } = useContext(AuthContext);
 
   return (
     <section className="shareCard">
       <div className="shareContainer">
         <div className="user">
-          <img src={currentUser.icon} alt="Profile picture" />
+          <img src="TODO" alt="Profile picture" />
         </div>
         <div className="content">
           <div className="inputs">
-            <input type="text" placeholder="What are you working on?" />
+            <input
+              type="text"
+              placeholder="What are you working on?"
+              value={post}
+              onChange={(e) => {
+                setPost(e.target.value);
+              }}
+            />
           </div>
           <div className="buttons">
             <div className="attachments">
