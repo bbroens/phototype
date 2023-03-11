@@ -1,4 +1,9 @@
 @import "../../globalstyle.scss";
 
 main {
+  @include themify($themes) {
+    background-color: themed("bgSoft");
+    color: themed("textColor");
+    padding: 22px;
+  }
 }

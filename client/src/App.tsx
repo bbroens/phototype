@@ -12,16 +12,18 @@ import Header from "./components/header/Header";
 import Menu from "./components/menu/Menu";
 import Aside from "./components/aside/Aside";
 import { ReactNode, useContext } from "react";
+import { ThemeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 
 const App = () => {
   const { currentUser } = useContext(AuthContext);
+  const { theme } = useContext(ThemeContext);
 
   const AppLayout = () => {
     return (
-      <div>
+      <div className={`theme-${theme}`}>
         <Header />
-        <div className="layoutContainer">
+        <div data-testid="layout" className="layoutContainer">
           <Menu />
           <div className="layoutPage">
             <Outlet />

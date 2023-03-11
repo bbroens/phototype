@@ -12,10 +12,14 @@ html {
 $color-primary: #6556c9;
 $color-primary-soft: #9c94cc;
 $color-secondary: #a7ffcd;
+$color-secondary-soft: rgb(233, 255, 233);
+$color-notification: #d32954;
 
 /* Panel colors for UI*/
 $color-background-light: #ebebeb;
+$color-background-lightest: #fefefe;
 $color-background-dark: #222;
+$color-background-darkest: #171717;
 $color-background-card-light: #fff;
 $color-background-card-dark: #353535;
 
@@ -30,3 +34,64 @@ $color-icons-regular: #333;
 
 /*Default margins for UI*/
 $padding-page-width: 50px;
+
+/*Dark & light mode mixins*/
+$themes: (
+  light: (
+    textColor: $color-text-dark,
+    textColorInvert: $color-text-light,
+    bg: $color-background-lightest,
+    bgCard: $color-background-card-light,
+    bgSoft: $color-background-light,
+    textColorSoft: $color-text-grey,
+    textColorSemiSoft: $color-icons-regular,
+    navIcons: #666,
+    border: #bbb,
+  ),
+  dark: (
+    textColor: $color-text-light,
+    textColorInvert: $color-text-dark,
+    bg: $color-background-dark,
+    bgCard: $color-background-card-dark,
+    bgSoft: $color-background-darkest,
+    textColorSoft: $color-text-grey,
+    textColorSemiSoft: $color-icons-light,
+    navIcons: #ccc,
+    border: #444,
+  ),
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+/*Responsive mixins*/
+@mixin mobile {
+  @media (max-width: 800px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 1100px) {
+    @content;
+  }
+}

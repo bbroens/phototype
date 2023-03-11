@@ -1,26 +1,66 @@
 @import "../../globalstyle.scss";
 
 nav {
-  flex: 2;
-  position: sticky;
-  top: 100px;
-  height: calc(100vh - 100px);
-  overflow: scroll;
-  background-color: themed("bg");
-  color: $color-primary;
-  padding-left: $padding-page-width;
+  @include themify($themes) {
+    flex: 2;
+    position: sticky;
+    top: 100px;
+    height: calc(100vh - 100px);
+    overflow: scroll;
+    background-color: themed("bg");
+    color: themed("textColor");
+    padding-left: $padding-page-width;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+    @include mobile {
+      display: none;
+    }
 
-  .navcontainer {
-    padding: 20px;
+    @include tablet {
+      padding-left: 0px;
+    }
 
-    hr {
-      margin: 30px 30px 15px 0px;
-      border: none;
-      background-color: themed("border");
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    a {
+      color: themed("textColor");
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-bottom: 17px;
+
+      svg {
+        width: 1.9rem;
+        height: 1.9rem;
+        color: $color-primary;
+      }
+    }
+
+    .navcontainer {
+      padding: 20px;
+
+      hr {
+        margin: 30px 30px 15px 0px;
+        border: none;
+        height: 0.5px;
+        background-color: themed("border");
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 10px;
+
+        .menuTitle {
+          font-size: 0.9rem;
+          color: themed("textColorSemiSoft");
+          font-weight: 600;
+          margin-bottom: 25px;
+        }
+      }
     }
   }
 }
