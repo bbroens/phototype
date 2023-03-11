@@ -53,8 +53,8 @@ const Header = () => {
         <NotificationsIcon />
         <section className="user">
           <Link to={`/profile/${currentUser.user_id}`}>
-            <img src="TODO" alt="Profile Picture" />
-            <span>TODO</span>
+            <img src={`/${currentUser.icon}`} alt="Profile Picture" />
+            <span>{currentUser.name}</span>
           </Link>
         </section>
       </section>

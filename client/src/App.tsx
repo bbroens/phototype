@@ -1,4 +1,3 @@
-import React from "react";
 import "./app.scss";
 import {
   createBrowserRouter,
@@ -8,6 +7,7 @@ import {
 } from "react-router-dom";
 import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
+import Profile from "./pages/profile/Profile";
 import Header from "./components/header/Header";
 import Menu from "./components/menu/Menu";
 import Aside from "./components/aside/Aside";
@@ -39,7 +39,7 @@ const App = () => {
   };
 
   const ProtectedRoute = ({ children }: ProtectRouteProps) => {
-    if (!currentUser) {
+    if (!currentUser.user_id) {
       return <Navigate to="/login" />;
     }
     return <>{children}</>;
@@ -58,6 +58,10 @@ const App = () => {
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "/profile/:id",
+          element: <Profile />,
         },
       ],
     },

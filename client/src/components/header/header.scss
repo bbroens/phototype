@@ -18,6 +18,10 @@ header {
       cursor: pointer;
     }
 
+    svg {
+      color: themed("navIcons");
+    }
+
     a {
       display: flex;
       align-items: center;
@@ -32,6 +36,12 @@ header {
       padding-left: $padding-page-width;
       display: flex;
       align-items: center;
+      gap: 30px;
+      color: themed("navIcons");
+
+      @include tablet {
+        padding-left: 0px;
+      }
 
       .logo {
         background: $color-primary;
@@ -46,6 +56,36 @@ header {
         top: 20%;
         left: 11px;
       }
+
+      .search {
+        @include mobile {
+          display: none;
+        }
+        @include tablet {
+          display: none;
+        }
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: themed("menuItems");
+
+        input {
+          border: none;
+          width: 200px;
+          color: themed("textColor");
+          font-size: 1rem;
+          height: 25px;
+          padding-bottom: 4px;
+          background-color: themed("bg");
+
+          &:focus {
+            outline: none;
+            border-bottom: 1px solid $color-primary-soft;
+            margin-top: 1px;
+          }
+        }
+      }
     }
 
     .right {
@@ -55,12 +95,22 @@ header {
       gap: 20px;
       color: themed("navIcons");
 
+      @include tablet {
+        padding-right: 0px;
+      }
+
+      @include mobile {
+        display: none;
+      }
+
       .user {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
+        font-weight: 400;
         color: themed("textColor");
-        padding-left: 40px;
+        border-left: 1px solid $color-icons-light;
+        padding-left: 20px;
 
         img {
           width: 32px;

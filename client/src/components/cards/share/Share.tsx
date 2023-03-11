@@ -13,7 +13,7 @@ const Share = () => {
     <section className="shareCard">
       <div className="shareContainer">
         <div className="user">
-          <img src="TODO" alt="Profile picture" />
+          <img src={currentUser.icon} alt="Profile picture" />
         </div>
         <div className="content">
           <div className="inputs">
