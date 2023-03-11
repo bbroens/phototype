@@ -8,9 +8,9 @@
     .postContainer {
       display: flex;
       flex-direction: column;
-    
+
       .postUser {
-                padding-right: 15px;
+        padding-right: 15px;
         padding-top: 7px;
         display: flex;
         align-items: center;
@@ -22,18 +22,19 @@
           padding-top: 3px;
         }
       }
+
       .postBody {
-       
         .shots {
-        
           .collage {
-            display: flex;      
+            display: flex;
           }
         }
+
         .text {
         }
       }
-.postActions {
+
+      .postActions {
         display: flex;
         justify-content: flex-end;
         gap: 10px;
@@ -59,7 +60,6 @@
             color: $color-text-dark;
           }
         }
-      }
       }
     }
   }
