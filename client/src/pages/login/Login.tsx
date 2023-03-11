@@ -10,14 +10,24 @@ export type IInputs = {
   password: string;
 };
 
-//TODO check existing login
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { currentUser, login } = useContext(AuthContext);
   const [err, setErr] = useState(null);
   const [inputs, setInputs] = useState({
     username: "",
     password: "",
   });
+
+  if (import.meta.env.VITE_AUTO_DEFAULT_LOGIN === "true") {
+    login({
+      username: "johndoe",
+      password: "password",
+    });
+  }
+
+  if (currentUser.user_id) {
+    return <Navigate to="/" />;
+  }
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
