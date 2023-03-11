@@ -12,14 +12,10 @@ html {
 $color-primary: #6556c9;
 $color-primary-soft: #9c94cc;
 $color-secondary: #a7ffcd;
-$color-secondary-soft: rgb(233, 255, 233);
-$color-notification: #d32954;
 
 /* Panel colors for UI*/
 $color-background-light: #ebebeb;
-$color-background-lightest: #fefefe;
 $color-background-dark: #222;
-$color-background-darkest: #171717;
 $color-background-card-light: #fff;
 $color-background-card-dark: #353535;
 
@@ -27,3 +23,10 @@ $color-background-card-dark: #353535;
 $color-text-dark: #000000;
 $color-text-light: #fefefe;
 $color-text-grey: #aaa;
+
+/*Icon colors for UI*/
+$color-icons-light: #ddd;
+$color-icons-regular: #333;
+
+/*Default margins for UI*/
+$padding-page-width: 50px;
