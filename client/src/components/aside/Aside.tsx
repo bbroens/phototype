@@ -1,4 +1,6 @@
 import "./aside.scss";
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
 import Event, { ICommunityEvent } from "../event/Event";
 import Activity, { IActivity } from "../activity/Activity";
 import { dummyCommunityEvents, dummyRecentActivity } from "../../dummydata";
@@ -13,6 +15,8 @@ if (import.meta.env.VITE_USE_DUMMY_DATA === "true") {
 }
 
 const Aside = () => {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <aside>
       <div className="asidecontainer">
@@ -48,13 +52,30 @@ const Aside = () => {
           <span className="menuTitle">PROFILE STATS</span>
           <div className="statsContainer">
             <div className="user">
-              <div className="icon">icon</div>
-              <div className="details">details</div>
+              <div className="icon">
+                <img src={`/${currentUser.icon}`} alt="Profile picture" />
+              </div>
+              <div className="details">
+                <div className="name">{currentUser.name}</div>
+                <div className="handle">@{currentUser.handle}</div>
+              </div>
             </div>
             <div className="stats">
-              <div className="followers">followers</div>
-              <div className="folowing">following</div>
-              <div className="posts">posts</div>
+              <div className="followers">
+                <strong>{currentUser.followers}</strong>
+                <br />
+                Followers
+              </div>
+              <div className="folowing">
+                <strong>{currentUser.following}</strong>
+                <br />
+                Following
+              </div>
+              <div className="posts">
+                <strong>{currentUser.posts}</strong>
+                <br />
+                Posts
+              </div>
             </div>
           </div>
         </section>
