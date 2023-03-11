@@ -16,5 +16,11 @@ nav {
 
   .navcontainer {
     padding: 20px;
+
+    hr {
+      margin: 30px 30px 15px 0px;
+      border: none;
+      background-color: themed("border");
+    }
   }
 }
