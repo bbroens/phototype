@@ -7,9 +7,22 @@
 
 Phototype is an open source social media prototype aimed at the shareable nature of photography.
 
-- Responsive front-end built with React.js, Typescript, SASS and Vite.
+- Front-end built with React.js, Typescript, React-router, SASS and Vite.
 - Back-end API built with Node.js Express on a Docker MySQL database.
-- Includes linter, git hooks and unit testing with Jest.
+- Fully configured linter, git hooks and initial automated testing.
+- ✨Highly expandable and customizable ✨
+
+## About the app
+
+Phototype has a responsive UI with global darkmode/lightmode. While post data is fetched from the API, user settings are stored in local browser storage - offloading user settings from the database. The front-end and back-end can be ran locally, the database can quickly be spun up using public Docker images.
+
+![Preview: Light mode](/client/public/preview-light.jpg?raw=true)
+
+> Responsive UI with client-side data fetching for rich media posts and comments.
+
+![Preview: Dark mode](/client/public/preview-dark.jpg?raw=true)
+
+> Global UI dark mode with Sass mixins.
 
 ### Front-end
 
