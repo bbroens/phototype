@@ -1,4 +1,5 @@
 import { db } from "../connect.js";
+import jwt from "jsonwebtoken";
 
 export const getLikes = (req, res) => {
   const likeQuery = "SELECT user_id FROM likes WHERE post_id = ?";
@@ -27,5 +28,22 @@ export const addLike = (req, res) => {
 };
 
 export const deleteLike = (req, res) => {
-  //TODO
+  const token = req.cookies.accessToken;
+  if (!token) return res.status(401).json("Not logged in.");
+
+  jwt.verify(token, process.env.JWT_SECRET_KEY, (err, userInfo) => {
+    if (err) return res.status(403).json("Token invalid.");
+
+    const deleteQuery =
+      "DELETE FROM likes WHERE `user_id` = ? AND `post_id` = ?";
+
+    db.query(
+      deleteQuery,
+      [userInfo.user_id, req.query.post_id],
+      (err, data) => {
+        if (err) return res.status(500).json(err);
+        return res.status(200).json("Post unliked.");
+      }
+    );
+  });
 };
