@@ -77,3 +77,37 @@ npm run test
 ```
 
 ### For a production front-end build:
+
+To build the front-end into the `/dist` folder, run the build script:
+
+```sh
+npm run build
+```
+
+## 2: Back-end
+
+Phototype requires [Node.js](https://nodejs.org/) v14+ to run.
+To use the back-end you need a MySQL database. You can install [Docker](https://www.docker.com) on your machine to spin up a local database.
+
+All express dependencies will be installed by a single npm install command. Follow the next steps to run the back-end locally next to the Vite front-end.
+
+> DO keep in mind that front-end and back-end need to run in separate terminal instances, or terminal tabs. This is because, even though they live in a single repo, they are separate applications.
+
+### 2.1: Get started with local back-end API:
+
+The back-end lives under the `api/` folder. In your terminal, `open a new tab` and navigate to the `api` folder from the project root:
+
+```sh
+cd api
+```
+
+In the /api folder, install all packages:
+
+```sh
+npm i
+```
+
+- docker mysql info...
+- docker phpmyadmin info...
+- populate info (export.sql)...
+- run api start...
