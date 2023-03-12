@@ -24,6 +24,8 @@ Phototype has a responsive UI with global darkmode/lightmode. While post data is
 
 > Global UI dark mode with Sass mixins.
 
+## Tech
+
 ### Front-end
 
 - React TypeScript codebase (.tsx and .ts).
@@ -33,9 +35,27 @@ Phototype has a responsive UI with global darkmode/lightmode. While post data is
 
 ### Back-end
 
-- Node.js Express API with bespoke endpoints.
+- Node.js Express API endpoints and controllers.
 - MySQL database (Docker) with population and schema scripts.
 - Nodemon for realtime API building and debugging.
-- Dummy data for initial spin-up provided.
+- SQL import file for local database provided.
 
-## Installation
+## Front- End & Back-End installation
+
+## 1: Front-end
+
+Phototype requires [Node.js](https://nodejs.org/) v14+ to run. The project is built using npm, to enable yarn you need to allow your version in `package.json`. The engine is preset to npm to make sure everyone on your team has a consistent build.
+
+### Get started with local front-end development:
+
+The front-end lives in the /client folder, separate from the api. In your terminal, navigate to the `client` folder in the project root.
+
+```sh
+cd client
+```
+
+...
+
+## 2: Back-end
+
+...
