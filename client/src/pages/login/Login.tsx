@@ -1,19 +1,45 @@
 // @ts-nocheck
-import { useContext } from "react";
+import React from "react";
+import { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import "./login.scss";
 
+export type IInputs = {
+  username: string;
+  password: string;
+};
+
 const Login = () => {
   const { currentUser, login } = useContext(AuthContext);
+  const [err, setErr] = useState(null);
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+  });
+
+  if (import.meta.env.VITE_AUTO_DEFAULT_LOGIN === "true") {
+    login({
+      username: "johndoe",
+      password: "password",
+    });
+  }
 
   if (currentUser.user_id) {
     return <Navigate to="/" />;
   }
 
-  const handleLogin = () => {
-    if (login) {
-      login();
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    try {
+      login(inputs);
+      Navigate("/");
+    } catch (err) {
+      setErr(JSON.stringify(err.response.data));
     }
   };
 
@@ -31,10 +57,21 @@ const Login = () => {
           </Link>
         </section>
         <section className="right">
-          <h2>Existing user</h2>
+          <h2>User login</h2>
           <form>
-            <input type="text" placeholder="Username" />
-            <input type="password" placeholder="Password" />
+            <input
+              type="text"
+              onChange={handleChange}
+              name="username"
+              placeholder="Username"
+            />
+            <input
+              type="password"
+              onChange={handleChange}
+              name="password"
+              placeholder="Password"
+            />
+            {err && err}
             <button onClick={handleLogin}>Login</button>
           </form>
         </section>

@@ -1,3 +1,4 @@
+import React from "react";
 import "./app.scss";
 import {
   createBrowserRouter,
@@ -14,23 +15,27 @@ import Aside from "./components/aside/Aside";
 import { ReactNode, useContext } from "react";
 import { ThemeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const App = () => {
   const { currentUser } = useContext(AuthContext);
   const { theme } = useContext(ThemeContext);
+  const queryClient = new QueryClient();
 
   const AppLayout = () => {
     return (
-      <div className={`theme-${theme}`}>
-        <Header />
-        <div data-testid="layout" className="layoutContainer">
-          <Menu />
-          <div className="layoutPage">
-            <Outlet />
+      <QueryClientProvider client={queryClient}>
+        <div className={`theme-${theme}`}>
+          <Header />
+          <div data-testid="layout" className="layoutContainer">
+            <Menu />
+            <div className="layoutPage">
+              <Outlet />
+            </div>
+            <Aside />
           </div>
-          <Aside />
         </div>
-      </div>
+      </QueryClientProvider>
     );
   };
 
