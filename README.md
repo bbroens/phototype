@@ -107,7 +107,29 @@ In the /api folder, install all packages:
 npm i
 ```
 
-- docker mysql info...
-- docker phpmyadmin info...
-- populate info (export.sql)...
-- run api start...
+### 2.2: Spin up a local MySQL database:
+
+Before you run the back-end server, first spin up a docker mysql database:
+
+> ! Change the MySQL password in the command. Remember this password for the next step.
+
+```sh
+docker run --name phototype-mysql -p 3306:3306 -v mysql_volume:/var/lib/mysql/ -d -e "MYSQL_ROOT_PASSWORD=your_password_here" mysql
+```
+
+This will create a new container named `phototype-mysql`, with the mysql:latest image, and publish the ports 3306 to the local environment.
+
+This also sets up the volume for the container to persist the database's data, so that it doesn't reset on restart of the host system or the container. To manage the volume for long-term use, have a look at [The MySQL docker hub](https://hub.docker.com/_/mysql).
+
+### Create and populate the database with initial schema and data:
+
+To manage the database, spin up in instance of phpMyAdmin, in a separate docker container:
+
+```sh
+docker run --name phototype-phpmyadmin -d --link phototype-mysql:db -p 8081:80 phpmyadmin/phpmyadmin
+```
+
+Once both MySQL and phpMyadmin are running locally, you can visit http://localhost:8081 to use phpMyAdmin.
+When prompted for login, you can login with user `root` and your previously chosen MySQL password.
+
+In phpMyAdmin, navigate to the `Import` tab on the right and there you upload the SQL dump for the app initial tables and data. Click "Browse" and select the file `api/_mysql_initial_data/mysql_create_db.sql` from the repository. Now click the import button and wait for the import to complete. The database is now ready.
