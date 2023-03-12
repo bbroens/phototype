@@ -1,10 +1,11 @@
 import { db } from "../connect.js";
+import jwt from "jsonwebtoken";
 
 export const getRelationships = (req, res) => {
   const relationQuery =
     "SELECT follower_user_id FROM user_relationships WHERE followed_user_id = ?";
 
-  db.query(relationQuery, [req.query.followedUserId], (err, data) => {
+  db.query(relationQuery, [req.query.followed_user_id], (err, data) => {
     if (err) return res.status(500).json(err);
     return res
       .status(200)
@@ -30,6 +31,19 @@ export const addRelationship = (req, res) => {
   });
 };
 
-export const deleteRelation = (req, res) => {
-  //TODO
+export const deleteRelationship = (req, res) => {
+  const token = req.cookies.accessToken;
+  if (!token) return res.status(401).json("Not logged in.");
+
+  jwt.verify(token, process.env.JWT_SECRET_KEY, (err, userInfo) => {
+    if (err) return res.status(403).json("Token invalid.");
+
+    const deleteQuery =
+      "DELETE FROM user_relationships WHERE `follower_user_id` = ? AND `followed_user_id` = ?";
+
+    db.query(deleteQuery, [userInfo.user_id, req.query.userId], (err, data) => {
+      if (err) return res.status(500).json(err);
+      return res.status(200).json("Unfollowing.");
+    });
+  });
 };
