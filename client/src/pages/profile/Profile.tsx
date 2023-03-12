@@ -1,3 +1,4 @@
+import React from "react";
 import "./profile.scss";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
@@ -13,8 +14,12 @@ const Profile = () => {
   return (
     <div className="profile">
       <div className="images">
-        <img src={`/${currentUser.bg}`} alt="" className="cover" />
-        <img src={`/${currentUser.icon}`} alt="" className="profilePic" />
+        <img src={`/${currentUser.cover_img}`} alt="" className="cover" />
+        <img
+          src={`/${currentUser.profile_img}`}
+          alt=""
+          className="profilePic"
+        />
       </div>
       <div className="profileContainer">
         <div className="uInfo">
@@ -27,7 +32,7 @@ const Profile = () => {
             </a>
           </div>
           <div className="center">
-            <span>{currentUser.name}</span>
+            <span>User feed</span>
             <button>Follow</button>
           </div>
           <div className="right">
