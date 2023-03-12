@@ -32,6 +32,7 @@ Phototype has a responsive UI with global darkmode/lightmode. While post data is
 - Re-usable components with type interfaces and SASS styling.
 - React-Router and React Query libraries.
 - Scripted linting, formatting, git hooks and unit testing
+- Responsive layout for desktop, tablet and mobile use.
 
 ### Back-end
 
@@ -133,3 +134,32 @@ Once both MySQL and phpMyadmin are running locally, you can visit http://localho
 When prompted for login, you can login with user `root` and your previously chosen MySQL password.
 
 In phpMyAdmin, navigate to the `Import` tab on the right and there you upload the SQL dump for the app initial tables and data. Click "Browse" and select the file `api/_mysql_initial_data/mysql_create_db.sql` from the repository. Now click the import button and wait for the import to complete. The database is now ready.
+
+### Start the local back-end API server
+
+Using your back-end terminal tab, in the `/api` folder, start the local nodejs express server:
+
+```sh
+npm run start
+```
+
+You can now start up a local front-end server:
+
+In a new terminal window, within the `client/` folder, run:
+
+```sh
+npm run dev
+```
+
+Now, when you open the app on http://localhost:5173 (as given by the front-end console) you will be able to use the app with the data imported to the database.
+
+## Development notes
+
+- The .env file contains a number of configuration variables, for both the front-end and the back-end.
+- By default, the login function runs automatically for the front-end. This can be disabled in the `client/.env` file.
+- Don't forget to change your MySQL password in the `api/connect.js` file.
+- This project is not yet finished. Some components use mockup data from a JSON file in the client src folder.
+
+## License
+
+MIT
