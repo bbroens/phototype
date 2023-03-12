@@ -54,8 +54,26 @@ The front-end lives in the /client folder, separate from the api. In your termin
 cd client
 ```
 
-...
+In the `client` folder, install the dependencies and git hooks by running:
 
-## 2: Back-end
+```sh
+npm i
+```
 
-...
+> Note: The back-end is not running yet, so will not run `npm run dev` yet. See section 2 on how to run the api locally.
+
+The project is setup with a few code quality plugins, to help you and your team work code in a consistent way. To run eslint and prettier, run the following command. It is also highly advised to install the `Prettier` plugin for your IDE. A config for VSCode is included in the `.vscode` folder.
+
+```sh
+npm run lint
+```
+
+> Note that eslint and prettier will auto-run on every Git commit and push, as set in the `Husky git hooks`.
+
+Finally, automated tests from the `./src/tests` folder can be ran running the following command. These tests are hooked into the build process and git workflow as well, triggering them automatically on commits.
+
+```sh
+npm run test
+```
+
+### For a production front-end build:
