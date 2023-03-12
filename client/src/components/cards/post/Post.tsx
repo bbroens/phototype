@@ -1,3 +1,4 @@
+import React from "react";
 import "./post.scss";
 import { useState } from "react";
 import Comments from "../../comments/Comments";
@@ -7,22 +8,19 @@ import CommentIcon from "@mui/icons-material/Comment";
 import { Link } from "react-router-dom";
 export interface IPost {
   post_id: number;
-  name: string;
-  datetime: string;
   user_id: number;
-  profile_pic: string;
+  created_at: string;
   text: string;
-  img: Array<string>;
+  img: string;
 }
 
 type Props = {
-  postObj: IPost;
+  postObj: any;
 };
 
 export const Post = ({ postObj }: Props) => {
   const [commentOpen, setCommentOpen] = useState(false);
-
-  //TODO Get from db
+  const imageArray = postObj.img.split(", ");
   const liked = false;
 
   // Return either collage or a single wide photo
@@ -46,13 +44,15 @@ export const Post = ({ postObj }: Props) => {
       <div className="postContainer">
         <div className="postUser">
           <Link to={`/profile/${postObj.user_id}`}>
-            <img src={`/${postObj.profile_pic}`} alt="Profile picture" />
-            <span className="name">{postObj.name}</span>
+            <img src={`/${postObj.profile_img}`} alt="Profile picture" />
+            <span className="name">
+              {`${postObj.firstname} ${postObj.lastname}`}
+            </span>
           </Link>
           <span className="timePosted">Posted recently</span>
         </div>
         <div className="postBody">
-          <div className="shots">{processedImages(postObj.img)}</div>
+          <div className="shots">{processedImages(imageArray)}</div>
           <div className="text">{postObj.text}</div>
         </div>
         <div className="postActions">
