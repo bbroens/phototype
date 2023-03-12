@@ -1,3 +1,4 @@
+import React from "react";
 import "./aside.scss";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
@@ -53,26 +54,29 @@ const Aside = () => {
           <div className="statsContainer">
             <div className="user">
               <div className="icon">
-                <img src={`/${currentUser.icon}`} alt="Profile picture" />
+                <img
+                  src={`/${currentUser.profile_img}`}
+                  alt="Profile picture"
+                />
               </div>
               <div className="details">
-                <div className="name">{currentUser.name}</div>
+                <div className="name">{`${currentUser.firstname} ${currentUser.lastname}`}</div>
                 <div className="handle">@{currentUser.handle}</div>
               </div>
             </div>
             <div className="stats">
               <div className="followers">
-                <strong>{currentUser.followers}</strong>
+                <strong>247</strong>
                 <br />
                 Followers
               </div>
               <div className="folowing">
-                <strong>{currentUser.following}</strong>
+                <strong>86</strong>
                 <br />
                 Following
               </div>
               <div className="posts">
-                <strong>{currentUser.posts}</strong>
+                <strong>212</strong>
                 <br />
                 Posts
               </div>

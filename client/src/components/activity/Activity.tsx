@@ -1,3 +1,4 @@
+import React from "react";
 import "./activity.scss";
 export interface IActivity {
   activity_id: number;

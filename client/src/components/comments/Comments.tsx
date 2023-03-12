@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import "./comments.scss";
 import { AuthContext } from "../../context/authContext";
@@ -22,7 +23,7 @@ const Comments = () => {
   return (
     <section className="comments">
       <div className="write">
-        <img src={`/${currentUser.icon}`} alt="" />
+        <img src={`/${currentUser.profile_img}`} alt="" />
         <input type="text" placeholder="Write a comment..." />
         <button>Send</button>
       </div>

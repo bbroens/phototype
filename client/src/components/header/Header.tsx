@@ -1,3 +1,4 @@
+import React from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
@@ -53,8 +54,8 @@ const Header = () => {
         <NotificationsIcon />
         <section className="user">
           <Link to={`/profile/${currentUser.user_id}`}>
-            <img src={`/${currentUser.icon}`} alt="Profile Picture" />
-            <span>{currentUser.name}</span>
+            <img src={`/${currentUser.profile_img}`} alt="Profile Picture" />
+            <span>{`${currentUser.firstname} ${currentUser.lastname}`}</span>
           </Link>
         </section>
       </section>

@@ -1,6 +1,8 @@
+import React from "react";
 import "./event.scss";
 import { Link } from "react-router-dom";
 import NearMeIcon from "@mui/icons-material/NearMe";
+
 export interface ICommunityEvent {
   event_id: number;
   date: string;
