@@ -20,11 +20,11 @@ export const addRelationship = (req, res) => {
   jwt.verify(token, process.env.JWT_SECRET_KEY, (err, userInfo) => {
     if (err) return res.status(403).json("Token invalid.");
 
-    const q =
+    const insertQuery =
       "INSERT INTO user_relationships (`follower_user_id`,`followed_user_id`) VALUES (?)";
     const values = [userInfo.user_id, req.body.userId];
 
-    db.query(q, [values], (err, data) => {
+    db.query(insertQuery, [values], (err, data) => {
       if (err) return res.status(500).json(err);
       return res.status(200).json("Now following user.");
     });

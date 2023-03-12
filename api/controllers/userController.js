@@ -14,10 +14,10 @@ export const getUser = (req, res) => {
 
 export const updateUser = (req, res) => {
   const token = req.cookies.accessToken;
-  if (!token) return res.status(401).json("Not authenticated!");
+  if (!token) return res.status(401).json("Not authenticated.");
 
   jwt.verify(token, process.env.JWT_SECRET_KEY, (err, userInfo) => {
-    if (err) return res.status(403).json("Token is not valid!");
+    if (err) return res.status(403).json("Token invalid.");
 
     const updateQuery =
       "UPDATE users SET `username`=?,`firstname`=?,`lastname`=?,`handle`=?,`profile_pic`=? WHERE id=? ";
@@ -34,7 +34,7 @@ export const updateUser = (req, res) => {
       ],
       (err, data) => {
         if (err) res.status(500).json(err);
-        if (data.affectedRows > 0) return res.json("User updated");
+        if (data.affectedRows > 0) return res.json("User updated.");
         return res.status(403).json("Not authorized to update user.");
       }
     );
