@@ -1,19 +1,13 @@
 import React from "react";
 import "./activity.scss";
-export interface IActivity {
-  activity_id: number;
-  profile_pic: string;
-  name: string;
-  event: string;
-}
 
-type Props = {
+type ActivityProps = {
   profile_pic: string;
   name: string;
   event: string;
 };
 
-const Activity = ({ profile_pic, name, event }: Props) => {
+const Activity = ({ profile_pic, name, event }: ActivityProps) => {
   return (
     <div className="activityItem">
       <img src={`/${profile_pic}`} alt="Profile picture" />

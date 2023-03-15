@@ -1,7 +1,7 @@
 import React from "react";
 import "./profile.scss";
 import { useContext } from "react";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext, AuthContextType } from "../../context/authContext";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
@@ -9,7 +9,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Posts from "../../components/posts/Posts";
 
 const Profile = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser } = useContext<AuthContextType>(AuthContext);
 
   return (
     <div className="profile">

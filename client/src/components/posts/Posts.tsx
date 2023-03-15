@@ -1,15 +1,24 @@
 /* eslint-disable indent */
 import React from "react";
 import "./posts.scss";
-import { Post, IPost } from "../cards/post/Post";
+import { Post } from "../cards/post/Post";
 import { makeRequest } from "../../axios";
 import { useQuery } from "@tanstack/react-query";
 
-type Props = {
+type Post = {
+  post_id: number;
+  user_id: number;
+  created_at: string;
+  text: string;
+  img: string;
+}[];
+
+type PostsProps = {
   filterUserId?: number;
 };
 
-export const Posts = ({ filterUserId }: Props) => {
+export const Posts = ({ filterUserId }: PostsProps) => {
+  // Get posts from api
   const { isLoading, error, data } = useQuery(["posts"], () =>
     makeRequest.get(`/posts?user_id=${filterUserId}`).then((res) => {
       return res.data;
@@ -18,8 +27,8 @@ export const Posts = ({ filterUserId }: Props) => {
 
   // Returns either all posts, or only posts made by a defined user.
   const filterPosts = (
-    unfilteredPosts: IPost[],
-    filterUserId: Props | unknown
+    unfilteredPosts: Post,
+    filterUserId: PostsProps | unknown
   ) => {
     if (filterUserId) {
       return unfilteredPosts.filter((post) => post.user_id === filterUserId);

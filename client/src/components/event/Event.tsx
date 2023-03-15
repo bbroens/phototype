@@ -3,20 +3,13 @@ import "./event.scss";
 import { Link } from "react-router-dom";
 import NearMeIcon from "@mui/icons-material/NearMe";
 
-export interface ICommunityEvent {
-  event_id: number;
-  date: string;
-  name: string;
-  location: string;
-}
-
-type Props = {
+type EventProps = {
   date: string;
   name: string;
   location: string;
 };
 
-const Event = ({ date, name, location }: Props) => {
+const Event = ({ date, name, location }: EventProps) => {
   const dateObj = new Date(date);
 
   return (

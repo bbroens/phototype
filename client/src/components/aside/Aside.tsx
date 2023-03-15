@@ -1,14 +1,28 @@
 import React from "react";
 import "./aside.scss";
 import { useContext } from "react";
-import { AuthContext } from "../../context/authContext";
-import Event, { ICommunityEvent } from "../event/Event";
-import Activity, { IActivity } from "../activity/Activity";
+import { AuthContext, AuthContextType } from "../../context/authContext";
+import Event from "../event/Event";
+import Activity from "../activity/Activity";
 import { dummyCommunityEvents, dummyRecentActivity } from "../../dummydata";
 
+type Activity = {
+  activity_id: number;
+  profile_pic: string;
+  name: string;
+  event: string;
+}[];
+
+type CommunityEvent = {
+  event_id: number;
+  date: string;
+  name: string;
+  location: string;
+}[];
+
 //? DUMMY DATA
-let communityEventArray: ICommunityEvent[] = [];
-let activityArray: IActivity[] = [];
+let communityEventArray: CommunityEvent = [];
+let activityArray: Activity = [];
 
 if (import.meta.env.VITE_USE_DUMMY_DATA === "true") {
   communityEventArray = dummyCommunityEvents;
@@ -16,7 +30,7 @@ if (import.meta.env.VITE_USE_DUMMY_DATA === "true") {
 }
 
 const Aside = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser } = useContext<AuthContextType>(AuthContext);
 
   return (
     <aside>

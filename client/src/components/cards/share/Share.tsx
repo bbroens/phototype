@@ -3,11 +3,11 @@ import AddShotIcon from "@mui/icons-material/AddPhotoAlternate";
 import AddLocationIcon from "@mui/icons-material/AddLocationAlt";
 import TagIcon from "@mui/icons-material/TagFaces";
 import { useState, useContext } from "react";
-import { AuthContext } from "../../../context/authContext";
+import { AuthContext, AuthContextType } from "../../../context/authContext";
 
 const Share = () => {
   const [post, setPost] = useState("");
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser } = useContext<AuthContextType>(AuthContext);
 
   return (
     <section className="shareCard">

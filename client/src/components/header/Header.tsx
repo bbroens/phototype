@@ -2,8 +2,8 @@ import React from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
-import { ThemeContext } from "../../context/darkModeContext";
-import { AuthContext } from "../../context/authContext";
+import { ThemeContext, ThemeContextType } from "../../context/darkModeContext";
+import { AuthContext, AuthContextType } from "../../context/authContext";
 import LogoImg from "../../assets/images/logo.png";
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import MoonIcon from "@mui/icons-material/DarkModeOutlined";
@@ -15,9 +15,9 @@ import PersonIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/SearchOutlined";
 
 const Header = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext<ThemeContextType>(ThemeContext);
+  const { currentUser } = useContext<AuthContextType>(AuthContext);
   const [searchQuery, setSearchQuery] = useState("");
-  const { currentUser } = useContext(AuthContext);
 
   return (
     <header data-testid="header">

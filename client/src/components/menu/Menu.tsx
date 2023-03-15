@@ -1,7 +1,7 @@
 import React from "react";
 import "./menu.scss";
 import NavItem from "../navitem/NavItem";
-import Workshop, { IWorkshop } from "../workshop/Workshop";
+import Workshop from "../workshop/Workshop";
 import GridIcon from "@mui/icons-material/GridViewOutlined";
 import PeopleIcon from "@mui/icons-material/PeopleOutline";
 import GroupsIcon from "@mui/icons-material/Workspaces";
@@ -10,8 +10,14 @@ import CalendarIcon from "@mui/icons-material/CalendarMonth";
 import SchoolIcon from "@mui/icons-material/School";
 import { dummyWorkshops } from "../../dummydata";
 
+type Workshop = {
+  workshop_id: number;
+  icon: string;
+  name: string;
+}[];
+
 //? DUMMY DATA
-let workshopArray: IWorkshop[] = [];
+let workshopArray: Workshop = [];
 if (import.meta.env.VITE_USE_DUMMY_DATA === "true") {
   workshopArray = dummyWorkshops;
 }

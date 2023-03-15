@@ -1,21 +1,20 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { AuthContext, IUser } from "../context/authContext";
+import { AuthContext, AuthContextType, User } from "../context/authContext";
 
-const mockUser: IUser = {
+const mockUser: User = {
   user_id: 1,
-  name: "Mock user",
-  handle: "mockuser",
-  icon: "i1.jpg",
-  bg: "i1.jpg",
-  followers: 111,
-  following: 222,
-  posts: 333,
+  username: "_testusername",
+  firstname: "_testfirstname",
+  lastname: "_testlastname",
+  handle: "_testhandle",
+  profile_img: "i1.jpg",
+  cover_img: "i2.jpg",
 };
 
 const TestingComponent = () => {
-  const { currentUser } = React.useContext(AuthContext);
+  const { currentUser } = React.useContext<AuthContextType>(AuthContext);
   return <h1>{currentUser?.user_id}</h1>;
 };
 

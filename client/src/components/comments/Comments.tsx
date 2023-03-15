@@ -1,24 +1,25 @@
 import React from "react";
 import { useContext } from "react";
 import "./comments.scss";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext, AuthContextType } from "../../context/authContext";
 import { dummyComments } from "../../dummydata";
-export interface IComments {
+
+type Comments = {
   id: number;
   desc: string;
   name: string;
   user_id: number;
   profile_pic: string;
-}
+}[];
 
 //? DUMMY DATA
-let commentArray: IComments[];
+let commentArray: Comments;
 if (import.meta.env.VITE_USE_DUMMY_DATA === "true") {
   commentArray = dummyComments;
 }
 
 const Comments = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser } = useContext<AuthContextType>(AuthContext);
 
   return (
     <section className="comments">

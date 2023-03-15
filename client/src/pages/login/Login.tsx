@@ -2,22 +2,18 @@
 import React from "react";
 import { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext, AuthContextType } from "../../context/authContext";
 import "./login.scss";
 
-export type IInputs = {
-  username: string;
-  password: string;
-};
-
 const Login = () => {
-  const { currentUser, login } = useContext(AuthContext);
+  const { currentUser, login } = useContext<AuthContextType>(AuthContext);
   const [err, setErr] = useState(null);
   const [inputs, setInputs] = useState({
     username: "",
     password: "",
   });
 
+  // If the .env is set to auto-login (for test builds), login
   if (import.meta.env.VITE_AUTO_DEFAULT_LOGIN === "true") {
     login({
       username: "johndoe",
@@ -25,13 +21,10 @@ const Login = () => {
     });
   }
 
+  // If logged in, bypass login screen and go to app
   if (currentUser.user_id) {
     return <Navigate to="/" />;
   }
-
-  const handleChange = (e) => {
-    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -41,6 +34,10 @@ const Login = () => {
     } catch (err) {
       setErr(JSON.stringify(err.response.data));
     }
+  };
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (

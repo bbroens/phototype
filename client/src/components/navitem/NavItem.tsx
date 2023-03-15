@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-type Props = {
+type NavItemProps = {
   icon: any;
   path: string;
   name: string;
 };
 
-const NavItem = ({ icon, path, name }: Props) => {
+const NavItem = ({ icon, path, name }: NavItemProps) => {
   const UserIcon = icon;
 
   return (

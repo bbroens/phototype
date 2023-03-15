@@ -29,15 +29,15 @@ Phototype has a responsive UI with global darkmode/lightmode. While post data is
 ### Front-end
 
 - React TypeScript codebase (.tsx and .ts).
-- Re-usable components with type interfaces and SASS styling.
+- Re-usable components with Typescript types and SASS styling.
 - React-Router, Axios requests and authentication routes.
 - Scripted linting, formatting, git hooks and unit testing
-- Responsive layout for desktop, tablet and mobile use.
+- Responsive layout for desktop, tablet and mobile clients.
 
 ### Back-end
 
-- Node.js Express API endpoints and controllers.
-- MySQL database (Docker) with population and schema scripts.
+- Node.js Express API endpoints and JS controllers.
+- MySQL database (Docker) with MySQL2 express package support.
 - Nodemon for realtime API building and debugging.
 - SQL import file for local database provided.
 

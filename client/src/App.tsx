@@ -13,13 +13,13 @@ import Header from "./components/header/Header";
 import Menu from "./components/menu/Menu";
 import Aside from "./components/aside/Aside";
 import { ReactNode, useContext } from "react";
-import { ThemeContext } from "./context/darkModeContext";
-import { AuthContext } from "./context/authContext";
+import { ThemeContext, ThemeContextType } from "./context/darkModeContext";
+import { AuthContext, AuthContextType } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const App = () => {
-  const { currentUser } = useContext(AuthContext);
-  const { theme } = useContext(ThemeContext);
+  const { currentUser } = useContext<AuthContextType>(AuthContext);
+  const { theme } = useContext<ThemeContextType>(ThemeContext);
   const queryClient = new QueryClient();
 
   const AppLayout = () => {
