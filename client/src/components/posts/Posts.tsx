@@ -5,13 +5,18 @@ import { Post } from "../cards/post/Post";
 import { makeRequest } from "../../axios";
 import { useQuery } from "@tanstack/react-query";
 
-type Post = {
+export type PostObject = {
   post_id: number;
   user_id: number;
   created_at: string;
   text: string;
   img: string;
-}[];
+  profile_img?: string;
+  firstname?: string;
+  lastname?: string;
+};
+
+export type PostCollection = Array<PostObject>;
 
 type PostsProps = {
   filterUserId?: number;
@@ -27,7 +32,7 @@ export const Posts = ({ filterUserId }: PostsProps) => {
 
   // Returns either all posts, or only posts made by a defined user.
   const filterPosts = (
-    unfilteredPosts: Post,
+    unfilteredPosts: PostCollection,
     filterUserId: PostsProps | unknown
   ) => {
     if (filterUserId) {

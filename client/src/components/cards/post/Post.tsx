@@ -6,12 +6,15 @@ import FavoriteOutlineIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CommentIcon from "@mui/icons-material/Comment";
 import { Link } from "react-router-dom";
+import { PostObject } from "../../posts/Posts";
 
 type PostProps = {
-  postObj: any;
+  postObj: PostObject;
 };
 
 export const Post = ({ postObj }: PostProps) => {
+  if (!postObj) return <>No post was defined.</>;
+
   const [commentOpen, setCommentOpen] = useState(false);
   const imageArray = postObj.img.split(", ");
   const liked = false;
