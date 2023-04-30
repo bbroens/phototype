@@ -31,7 +31,7 @@ Phototype has a responsive UI with global darkmode/lightmode. While post data is
 - React TypeScript codebase (.tsx and .ts).
 - Re-usable components with Typescript types and SASS styling.
 - React-Router, Axios requests and authentication routes.
-- Scripted linting, formatting, git hooks and unit testing
+- Scripted linting, formatting, git hooks and unit testing.
 - Responsive layout for desktop, tablet and mobile clients.
 
 ### Back-end
